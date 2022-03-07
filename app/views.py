@@ -2,16 +2,16 @@ from django.shortcuts import render
 from .models import Search,Join
 #from .forms import Formclass
 
-searchobj = Search.objects.all()
-search_context = {
-    "searchobj" : searchobj
-}
 
 # Create your views here.
 def index(request,*args,**kwargs):
     return render(request, 'index.html',{})
 
 def search(request,*args,**kwargs):
+    searchobj = Search.objects.all()
+    search_context ={
+        "searchobj" : searchobj
+    }
     return render(request, 'search.html',search_context)
 '''
 def form_create_view(request, *args,**kwargs):
