@@ -8,7 +8,7 @@ def index(request,*args,**kwargs):
     return render(request, 'index.html',{})
 
 def search(request,*args,**kwargs):
-    searchobj = Search.objects.all()
+    searchobj = Search.objects.filter(blood="O+ve",district="Alappuzha")
     search_context ={
         "searchobj" : searchobj
     }
