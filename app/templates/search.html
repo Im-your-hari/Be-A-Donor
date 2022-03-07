@@ -81,12 +81,14 @@
                 <th>BLOOD</th>
                 <th>PHONE</th>
             </tr>
+            {% for i in searchobj %}
             <tr>
-                <td>{{ search_context.name }}</td>
-                <td>{{ search_context.age }}</td>
-                <td>{{ search_context.blood }}</td>
-                <td>{{ search_context.phone }}</td>
+                <td>{{ searchobj.name }}</td>
+                <td>{{ searchobj.age }}</td>
+                <td>{{ searchobj.blood }}</td>
+                <td>{{ searchobj.phone }}</td>
             </tr>
+            {% endfor %}
         </table>
      
 
