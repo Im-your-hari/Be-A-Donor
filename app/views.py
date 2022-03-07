@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Search,Join
 #from .forms import Formclass
 
 # Create your views here.
@@ -15,3 +16,8 @@ def form_create_view(request, *args,**kwargs):
     }
     return render(request, 'index.html', context)
 '''
+
+searchobj = Search.objects.all()
+search_context = {
+    "searchobj" = searchobj,
+}
