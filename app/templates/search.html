@@ -14,6 +14,8 @@
         BE A DONOR
     </title>
     <link rel="shortcut icon" href="https://im-your-hari.github.io/cdnimages_beadonor/title.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     
     <!--link href="" rel="stylesheet"-->
     <!--Style sheet from static-->
@@ -73,25 +75,40 @@
             </div>
         </header>
         
-        
-        <table class="table table-striped">
-            <tr>
-                <th>NAME</th>
-                <th>AGE</th>
-                <th>BLOOD</th>
-                <th>DISTRICT</th>
-                <th>PHONE</th>
-            </tr>
-            {% for i in searchobj %}
-            <tr>
-                <td>{{ i.name }}</td>
-                <td>{{ i.age }}</td>
-                <td>{{ i.blood }}</td>
-                <td>{{ i.district }}</td>
-                <td>{{ i.phone }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+        <div style="overflow-x:auto;">
+            <table class="table table-striped col-md-9 nav-col">
+                <tr>
+                    <b>
+                        <th>NAME</th>
+                        <th>AGE</th>
+                        <th>BLOOD</th>
+                        <th>DISTRICT</th>
+                        <th>CONTACT</th>
+                    </b>
+                </tr>
+                {% for i in searchobj %}
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.age }}</td>
+                    <td>{{ i.blood }}</td>
+                    <td>{{ i.district }}</td>
+                    <!--td>{{ i.phone }}&nbsp;<i class="fas fa-phone"></i></td-->
+                    <td>
+                        &nbsp;
+                        <a href="tel://'{{ i.phone}}'">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <a href="https://wa.me/91{{i.phone}}">
+                            <i class="fa fa-whatsapp" aria-hidden="true" style='font-size:23px;'></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
      
 
 
@@ -130,5 +147,6 @@
     <script src="{% static '/plugins/grid-gallery/js/grid-gallery.min.js' %}"></script>
     <script src="{% static '/plugins/scroll-fixed/jquery-scrolltofixed-min.js' %}"></script>
     <script src="{% static '/js/script.js' %}"></script>
+    <script src="https://use.fontawesome.com/679bbace8d.js"></script>
 
 </html>
