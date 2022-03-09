@@ -8,11 +8,25 @@ def index(request,*args,**kwargs):
     return render(request, 'index.html',{})
 
 def search(request,*args,**kwargs):
-    searchobj = Search.objects.filter(blood="O+ve",district="Alappuzha")
-    search_context ={
-        "searchobj" : searchobj
-    }
-    return render(request, 'search.html',search_context)
+    if request.GET:
+        bloodgroup = request.GET['bloodgroup']
+        print("Blood :: " + bloodgroup)
+        dist = request.GET['district']
+        print("District :: " + dist)
+        searchobj = Search.objects.filter(blood=bloodgroup,district=dist)
+        search_context ={
+           "searchobj" : searchobj
+        }
+        return render(request, 'search.html',search_context)
+    else:
+        print("Get not found \n"*10)
+        return render(request, 'search.html')
+
+
+
+
+
+
 '''
 def form_create_view(request, *args,**kwargs):
     form=Formclass(request.POST or None)
