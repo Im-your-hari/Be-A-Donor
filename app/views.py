@@ -8,10 +8,10 @@ def index(request,*args,**kwargs):
     return render(request, 'index.html',{})
 
 def search(request,*args,**kwargs):
-    if request.GET:
-        bloodgroup = request.GET['bloodgroup']
+    if request.POST:
+        bloodgroup = request.POST['bloodgroup']
         print("Blood :: " + bloodgroup)
-        dist = request.GET['district']
+        dist = request.POST['district']
         print("District :: " + dist)
         searchobj = Search.objects.filter(blood=bloodgroup,district=dist)
         search_context ={
@@ -19,8 +19,8 @@ def search(request,*args,**kwargs):
         }
         return render(request, 'search.html',search_context)
     else:
-        print("Get not found \n"*10)
-        return render(request, 'search.html')
+        print("No data \n"*10)
+        return render(request, 'index.html')
 
 
 
