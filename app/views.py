@@ -1,14 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Search,Join
 from .forms import Joinclass
 
 
 # Create your views here.
 def index(request,*args,**kwargs):
-    form = Joinclass()
-    #print(form)
-    #print(form)
-    return render(request, 'index.html',{'form':form})
+    form=Joinclass(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form=Joinclass()
+        return redirect('/')
+    context={
+        'form': form,
+    }
+    return render(request, 'index.html',context)
 
 def search(request,*args,**kwargs):
     if request.POST:
@@ -24,12 +29,6 @@ def search(request,*args,**kwargs):
     else:
         print("No data \n"*10)
         return render(request, 'index.html')
-
-
-
-
-
-
 
 def form_create_view(request, *args,**kwargs):
     form=Joinclass(request.POST or None)
