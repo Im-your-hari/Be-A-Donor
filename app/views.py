@@ -5,7 +5,10 @@ from .forms import Joinclass
 
 # Create your views here.
 def index(request,*args,**kwargs):
-    return render(request, 'index.html',{})
+    form = Joinclass()
+    #print(form)
+    #print(form)
+    return render(request, 'index.html',{'form':form})
 
 def search(request,*args,**kwargs):
     if request.POST:
@@ -33,6 +36,7 @@ def form_create_view(request, *args,**kwargs):
     if form.is_valid():
         form.save()
         form=Joinclass()
+        return redirect('/')
     context={
         'form': form,
     }
