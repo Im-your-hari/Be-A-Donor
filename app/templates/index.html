@@ -207,11 +207,13 @@
              
         </div>
         
-        <form>
+        <form method="post">
+            {% csrf_token %}
          <div class="form-title">
              <h4>Join as a Donor</h4>
          </div>
-         <div class="form-group">
+            {{ form.as_p }}
+         <!--div class="form-group">
             <input type="text" class="form-control" placeholder="Name">
             <input type="text" class="form-control" placeholder="Phone">
             <input type="text" class="form-control" placeholder="Weight">
@@ -246,7 +248,8 @@
                 <option value="AB-">AB-ve</option>
             </select>
             <button class="btn btn-sm btn-primary w-100">JOIN</button>
-         </div>
+         </div-->
+         <input type="submit" class="btn btn-sm btn-primary" value="Join">
        </form>
     </section>
     

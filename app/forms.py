@@ -1,8 +1,7 @@
 from django import forms
-#from .models import Modelclassname
-'''
-class Formclass(forms.ModelForm):
+from .models import Search
+
+class Joinclass(forms.ModelForm):
     class Meta:
-        model = Modelclassname
+        model = Search
         fields = "__all__"
-'''

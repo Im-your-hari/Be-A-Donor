@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Search,Join
-#from .forms import Formclass
+from .forms import Joinclass
 
 
 # Create your views here.
@@ -27,15 +27,13 @@ def search(request,*args,**kwargs):
 
 
 
-'''
+
 def form_create_view(request, *args,**kwargs):
-    form=Formclass(request.POST or None)
+    form=Joinclass(request.POST or None)
     if form.is_valid():
         form.save()
-        form=Formclass()
+        form=Joinclass()
     context={
         'form': form,
     }
     return render(request, 'index.html', context)
-'''
-
