@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect;
 from .models import Search,Join
 from .forms import Joinclass
 
